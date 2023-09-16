@@ -1,0 +1,40 @@
+
+Loading Coordinates: World coordinates are loaded from a text file located on Google Drive. The file should contain rows of coordinates with each coordinate on one line. After loading, these coordinates are processed and stored in a numpy array.\
+
+Predefined Image Coordinates: The image coordinates are manually predefined for two different houses (manually_figured_points for house 1 and house2_10points for house 2).
+
+Estimating the Projection Matrix: For both houses, the projection matrix is computed using DLT and since the rank of matrix A was 12 we used SVD to get the solution. This matrix maps the real-world 3D coordinates to 2D image coordinates.
+
+P_house_1 [[-1.35985036e-01 -2.05287976e-01  1.24204300e-02 -7.42875968e-01]
+ [ 7.32370218e-03 -1.07456747e-02  2.35700948e-01 -5.75864392e-01]
+ [ 1.02347989e-04 -1.38353653e-04  2.54937711e-05 -1.44034056e-03]]
+
+P_house_2 [[-2.23612445e-02 -2.65920394e-01  3.93050773e-03 -6.97004619e-01]
+ [ 3.45279752e-02 -1.53916924e-02  2.53249123e-01 -6.14320275e-01]
+ [ 1.71136615e-04 -7.85605022e-05  9.38318696e-06 -1.33841542e-03]]
+
+Calculating Rotation and Calibration Matrices: This is achieved via RQ decomposition on the projection matrix. The script calculates both the rotation and calibration (K) matrices for each house.
+
+Rotation matrix for house 1:
+[[-0.80374416 -0.59497117 -0.00215096]
+ [-0.0888966   0.11651386  0.98920267]
+ [ 0.58829645 -0.79525708  0.14653825]]
+
+Calibration matrix for house 1:\
+[[2.31410891e-01 4.56035772e-04 8.50772707e-02]
+ [0.00000000e+00 2.31252934e-01 4.73932861e-02]
+ [0.00000000e+00 0.00000000e+00 1.73973494e-04]]
+
+Rotation matrix for house 2:
+[[-0.41726842 -0.90878178  0.00165744]
+ [-0.04453716  0.02227084  0.99875946]
+ [ 0.90769131 -0.41667696  0.04976748]]
+
+Calibration matrix for house 2:\
+[[ 2.51000764e-01 -1.00073124e-03  9.07014062e-02]
+ [ 0.00000000e+00  2.51054392e-01  5.03576759e-02]
+ [ 0.00000000e+00  0.00000000e+00  1.88540547e-04]]
+
+
+
+Validation: The validation checks ensure the accuracy of the computed parameters. The validation checks if the multiplication of the intrinsic (K) and extrinsic (R) parameters gives the original projection matrix, and if the transformed translation vector equals the original translation vector. For both houses, the checks return True, indicating that the computed parameters are correct.}
