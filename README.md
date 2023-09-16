@@ -15,12 +15,6 @@ The project involves the following tasks:
    - Camera orientation (R)
    - Non-homogeneous world coordinates of the camera (Ce)
 
-## Repository Structure
-
-- `code/`: Contains the Python code for image coordinate extraction, DLT algorithm implementation, and camera parameter estimation.
-- `data/`: Includes the image files "house1.png" and "house2.png," as well as the file "coords.tex" with world coordinates.
-- `results/`: Stores the estimated camera parameters (K, R, Ce) for both images.
-
 ## Getting Started
 
 ### Prerequisites
@@ -29,7 +23,8 @@ Ensure you have the following dependencies installed:
 
 - [Python](https://www.python.org/)
 - [NumPy](https://numpy.org/)
-- 
+- [Matplotlib](https://matplotlib.org/)
+- [Math](https://docs.python.org/3/library/math.html)
 
 ## Results
 The estimated camera parameters (K, R, Ce) for both "house1.png" and "house2.png" can be found in the results/ directory. These results are based on the image coordinate extraction and DLT algorithm implementation.
