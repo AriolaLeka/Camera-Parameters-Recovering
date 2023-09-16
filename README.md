@@ -1,2 +1,38 @@
-# Camera-Parameters-Recovering
-A program developed to recover the internal and external camera parameters of the camera that was used to generate a picture.
+# Camera Parameter Recovery from Images
+
+This repository contains the code and materials for a project focused on recovering internal and external camera parameters from images. The objective is to estimate the camera calibration matrix (K), camera orientation (R), and the world coordinates of the camera (Ce) for two images, namely "house1.png" and "house2.png."
+
+## Task Description
+
+The project involves the following tasks:
+
+1. **Image Coordinate Extraction**: Finding the image coordinates (xi) for 10 cardinal points marked in the image "house1.png." This can be achieved either through line detection using the Hough transform and intersection or manual extraction.
+
+2. **Projection Matrix Reconstruction**: Reconstructing the projection matrix (P) using the Direct Linear Transform (DLT) algorithm. In this step, we may encounter a rank deficiency in the matrix A, but we will adapt the solution to ensure it works.
+
+3. **Camera Parameter Estimation**: From the projection matrix P, we aim to recover:
+   - Camera calibration matrix (K)
+   - Camera orientation (R)
+   - Non-homogeneous world coordinates of the camera (Ce)
+
+## Repository Structure
+
+- `code/`: Contains the Python code for image coordinate extraction, DLT algorithm implementation, and camera parameter estimation.
+- `data/`: Includes the image files "house1.png" and "house2.png," as well as the file "coords.tex" with world coordinates.
+- `results/`: Stores the estimated camera parameters (K, R, Ce) for both images.
+
+## Getting Started
+
+### Prerequisites
+
+Ensure you have the following dependencies installed:
+
+- [Python](https://www.python.org/)
+- [NumPy](https://numpy.org/)
+- 
+
+## Results
+The estimated camera parameters (K, R, Ce) for both "house1.png" and "house2.png" can be found in the results/ directory. These results are based on the image coordinate extraction and DLT algorithm implementation.
+ 
+## Acknowledgments
+This project was done in collaboration with Shega Likaj and Francisco Amoros Cubells.
